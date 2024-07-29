@@ -1,0 +1,27 @@
+<h1 id="title">My recipes</h1>
+<ul ngbNav #nav="ngbNav" class="nav-tabs" >
+	<li ngbNavItem>
+		<a  routerLink="/login"  class="color" >Login</a>
+	
+	</li>
+    <li ngbNavItem>
+        <a   routerLink="/logout" class="color" >Logout</a>
+       
+    </li>
+	<li ngbNavItem >
+		<a   routerLink="/register"  class="color" >Register</a>
+	
+	</li>
+    <li ngbNavItem class="bottun"  >
+		<a routerLink="/all-recipes" class="color" >All Recipes</a>
+	
+	</li>
+    <li ngbNavItem >
+		<a  routerLink="/add-recipe" class="color" >Add Recipe </a>
+	
+	</li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+

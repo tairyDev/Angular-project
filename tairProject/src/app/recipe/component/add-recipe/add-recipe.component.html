@@ -1,0 +1,131 @@
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> -->
+
+
+<div class="container">
+    <button class="btn cencel" data-dismiss="modal" (click)="cencel()"> <mat-icon>cancel</mat-icon> </button>
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h3 class="card-title mt-3 text-center h3">Add Recipe</h3>
+            <form [formGroup]="this.addForm">
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">name</span>
+                    </div>
+                    <input name="" class="form-control" formControlName="nameRecipe" type="text">
+                    <div>
+                        <ng-container *ngIf="this.addForm.controls['nameRecipe'].errors as nameRecipeError">
+                          <p class="err" *ngIf="nameRecipeError['required']">*this field is must!</p>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Category</span>
+                    </div>
+                    <select  class="form-control" formControlName="categoryId">
+                        <option *ngFor="let control of categoryArry; let i = index" [value]="control.id">{{control.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">preparation Time</span>
+                    </div>
+                    <input name="" class="form-control" type="number" formControlName="preparationTime">
+                    <div>
+                        <ng-container *ngIf="this.addForm.controls['preparationTime'].errors as preparationTimeError">
+                          <p class="err" *ngIf="preparationTimeError['required']">*this field is must!</p>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Level of Difficulty</span>
+                    </div>
+                    <select class="form-control" formControlName="levelOfDifficulty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">img </span>
+                    </div>
+                    <input name="" class="form-control" formControlName="urlImage" type="text">
+                    <div>
+                        <ng-container *ngIf="this.addForm.controls['urlImage'].errors as urlImageError">
+                          <p class="err" *ngIf="urlImageError['required']">*this field is must!</p>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">listIngredients </span>
+                    </div>
+                    <div class="container input-container">
+                        <input *ngFor="let input of inputFields; let i = index" type="text" (click)="addEmptyInput(i)" >
+                        <!-- <div>
+                            <ng-container *ngIf="this.addForm.controls['nameRecipe'].errors as nameRecipeError">
+                              <p class="err" *ngIf="nameRecipeError['required']">*this field is must!</p>
+                            </ng-container>
+                        </div> -->
+                    </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        function addEmptyInput() {
+                            const container = document.querySelector('.container');
+                            const input = document.createElement('input');
+                            input.setAttribute('type', 'text');
+                            container.appendChild(input);
+                        }
+
+                        const inputRef = document.querySelector('#inputRef');
+                        inputRef.onclick = addEmptyInput;
+                    });
+                </script>
+
+                </div>
+                
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">preparation </span>
+                    </div>
+                    <div class="container input-container">
+                        <input *ngFor="let input of inputFieldsP; let i = index" type="text" (click)="addEmptyInputP(i)">
+                    </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        function addEmptyInput() {
+                            const container = document.querySelector('.container');
+                            const input = document.createElement('input');
+                            input.setAttribute('type', 'text');
+                            container.appendChild(input);
+                        }
+
+                        const inputRef = document.querySelector('#inputRef');
+                        inputRef.onclick = addEmptyInput;
+                    });
+                </script>
+
+                </div>
+                <div class="form-group">
+                 
+                    <button type="submit" class="btn btn-primary btn-block save" (click)="save()" [disabled]="!this.addForm.valid"> Add recipe </button>
+                </div>
+
+            </form>
+        </article>
+    </div>
+
+</div>

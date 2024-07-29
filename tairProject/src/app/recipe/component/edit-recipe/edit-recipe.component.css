@@ -1,0 +1,67 @@
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: rgb(10, 72, 10);
+    color:  rgb(10, 72, 10);
+}
+.btn-twitter {
+    background-color:rgb(11, 79, 11);
+    color:  rgb(10, 72, 10);
+}
+.cencel{
+    background-color: red;
+    border: red;
+    height: 50px;
+    width: 130px;
+}
+.icon{
+  align-items: start;
+}
+.err{
+    color: red;
+}
+.save{
+    background-color: rgb(105, 158, 105);
+    border: rgb(105, 158, 105);
+    height: 50px;
+    width: 130px;
+}
+.input-group-text{
+    background-color: rgb(105, 158, 105);
+}
+.add{
+    border:  rgb(105, 158, 105);
+    background-color: rgb(105, 158, 105);
+}
+#buttons{
+    display: flex;
+    justify-content:left;
+    right: 10px; 
+}
+.h3{
+    font-size: 50px;
+    color: rgb(1, 71, 1);
+}
+.err{
+    color: red;
+}
